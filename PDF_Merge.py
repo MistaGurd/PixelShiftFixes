@@ -107,7 +107,6 @@ class PDF_Merging(Screen):
                 self.ids.status_label.color = (0.5, 0.95, 0.4, 1)
                 Clock.schedule_once(lambda dt: setattr(self.ids.status_label, "text", "Begynder behandling, vent venligst!"),-1)
                 Clock.schedule_once(lambda dt: threading.Thread(target=self.merge_pdfs(output_path), args=(self.selected_pdfs,), daemon=True).start(),1)
-            #threading.Thread(target=self.merge_pdfs(output_path), args=(self.selected_pdfs,), daemon=True).start()
 
     def merge_pdfs(self, output_path):
         try:
