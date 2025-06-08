@@ -37,7 +37,11 @@ class FileConvert(Screen):
         self.default_output_folder = os.path.join(os.path.expanduser("~"), "Downloads")
         self.output_folder = None
 
+    def on_enter(self):
         Window.bind(on_dropfile=self.on_drop)
+
+    def on_leave(self):
+        Window.unbind(on_dropfile=self.on_drop)
 
     def on_drop(self, window, file_path):
         formater = (".pdf",".jpg",".jpeg",".png",".webp",".avif",".docx",".txt")

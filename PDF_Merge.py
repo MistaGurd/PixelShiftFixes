@@ -27,7 +27,11 @@ class PDF_Merging(Screen):
 
         self.selected_pdfs = []
 
+    def on_enter(self):
         Window.bind(on_dropfile=self.on_drop)
+
+    def on_leave(self):
+        Window.unbind(on_dropfile=self.on_drop)
 
     def on_drop(self, window, file_path):
         path = file_path.decode("utf-8")  # Når man drag and dropper vil Kivy gerne have
