@@ -12,7 +12,6 @@ from pypdf import PdfWriter
 
 
 class PDFNummer(Screen):
-    Start_nummer = NumericProperty() # Lader Kivy automatisk opdaterer,
     merger_root = ObjectProperty()
 
 class PDF_Merging(Screen):
@@ -51,6 +50,7 @@ class PDF_Merging(Screen):
 
         self.update_pdf_list()
     def add_pdfs(self):
+        Clock.schedule_once(lambda dt: setattr(self.ids.status_label, "text", ""))
         filepaths = filedialog.askopenfilenames(
             title="Vælg PDF filer",
             filetypes=[("PDF Fil", "*.pdf")]
